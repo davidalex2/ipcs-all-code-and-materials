@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<h1>Welcome to Thymeleaf with Spring Boot</h1>
+
+<!-- Example of displaying a message -->
+<p th:text="'This is a static message.'">This is a static message.</p>
+
+<!-- Correct way to use a URL with a link -->
+<a th:href="@{/bank/getAllAccounts}">View All Accounts</a>
+
+</body>
+</html>

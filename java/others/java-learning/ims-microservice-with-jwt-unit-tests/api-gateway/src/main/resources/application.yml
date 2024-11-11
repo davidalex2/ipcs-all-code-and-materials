@@ -1,0 +1,46 @@
+spring:
+  main:
+    web-application-type: reactive
+  application:
+    name: cloud-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: CUSTOMER-SERVICE
+          uri: http://localhost:8081
+          predicates:
+            - Path=/customer-service/**
+        - id: PRODUCT-SERVICE
+          uri: http://localhost:8082
+          predicates:
+            - Path=/product-service/**
+        - id: ORDER-SERVICE
+          uri: http://localhost:8083
+          predicates:
+            - Path=/order-service/**
+        - id: INVENTORY-SERVICE
+          uri: http://localhost:8084
+          predicates:
+            - Path=/inventory-service/**
+        - id: SUPPLIER-SERVICE
+          uri: http://localhost:8085
+          predicates:
+            - Path=/supplier-service/**
+        - id: LOGIN-SERVICE
+          uri: http://localhost:8086
+          predicates:
+            - Path=/login-service/**
+server:
+  port: 8765
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+logging:
+  level:
+    '[org.springframework.cloud.gateway]': TRACE

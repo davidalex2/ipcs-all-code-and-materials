@@ -1,0 +1,37 @@
+Java Basics
+	Data types
+	String pool
+	Loops
+	Methods
+	
+OOPs
+	class, object, encap....
+	
+Patterns
+	Dao, Singleton, .....
+	
+Project
+	CRUD & DB
+	
+=============================================
+
+C:\Program Files\Java\jdk1.8.0_202\bin
+
+
+Constructor
+Encapsulation
+Inheritance
+Polymorphism
+Abstract class
+Interface
+
+Collection
+	List, Set, Map
+	
+Exception Hadling
+sql
+Dao
+
+psql -U postgres
+
+"jdbc":postgresjdbc://localhost:5432/(database)";
