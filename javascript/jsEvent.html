@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #h-txt:hover + #s-txt{
+            display: block;
+        }
+        #s-txt{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="mytext">
+    <p id="ottext"></p>
+    <p id="h-txt">hover me</p>
+    <p id="s-txt">this is a hover</p>
+   
+    <button id="reversedText">Reverse Text</button>
+
+    <script>
+        document.getElementById('mytext').addEventListener('input', function() {
+            var text = this.value;
+            var reversedText = text;
+            document.getElementById('ottext').innerText = reversedText;
+        });
+
+        document.getElementById('reversedText').addEventListener('click', function() {
+            var text = document.getElementById('mytext').value;
+            var reversedText = text;
+            window.alert(reversedText);
+            // document.getElementById('ottext').innerText = reversedText;
+        });
+    </script>
+</body>
+</html>

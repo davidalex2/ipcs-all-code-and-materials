@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+<p>A function can access variables defined inside the function:</p>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<script>
+ let a=3;
+
+let c=function() {
+//   var a=5;
+let b=()=>{
+      document.getElementById("demo").innerHTML = a * a;
+
+      // nested function can access variables defined in the outer function
+}
+return b;
+}
+let show=c();
+show();
+</script>
+
+</body>
+</html>

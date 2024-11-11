@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form
+      method="post"
+      action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdipCF6C3soqCwMSoqtydQvcObUEUKRiYX0J8T6DEkL04ZGkg/formResponse"
+    >
+      <input type="text" name="entry.500641002" class="whsOnd zHQkBf" />
+      <input type="text" name="entry.1993427731" class="KHxj8b tL9Q4c" />
+      <input type="submit" />
+    </form>
+  </body>
+</html>
+
+
+ <form action="https://docs.google.com/forms/d/e/1FAIpQLSdipCF6C3soqCwMSoqtydQvcObUEUKRiYX0J8T6DEkL04ZGkg/formResponse"
+      target="_self"
+      id="bootstrapForm"
+      method="POST">
+    <fieldset>
+        <h2>Untitled form<br><small></small></h2>
+    </fieldset>
+
+
+   
+    <fieldset>
+        <legend for="1184641094">Name</legend>
+        <div class="form-group">
+            <input id="500641002" type="text" name="entry.500641002" class="form-control" required>
+        </div>
+    </fieldset>
+
+
+
+    <fieldset>
+        <legend for="1678412425">Address</legend>
+        <div class="form-group">
+            <textarea id="1993427731" name="entry.1993427731" class="form-control" required></textarea>
+        </div>
+    </fieldset>
+
+    <input type="hidden" name="fvv" value="1">
+    <input type="hidden" name="fbzx" value="-2412420329039817533">
+  
+        CAVEAT: In multipages (multisection) forms, *pageHistory* field tells to google what sections we've currently completed.
+        This usually starts as "0" for the first page, then "0,1" in the second page... up to "0,1,2..N" in n-th page.
+        Keep this in mind if you plan to change this code to recreate any sort of multipage-feature in your exported form.
+        We're setting this to the total number of pages in this form because we're sending all fields from all the section together.
+
+    <input type="hidden" name="pageHistory" value="0">
+
+    <input class="btn btn-primary" type="submit" value="Submit">
+</form> --> 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(event.target); // Get form data
+
+            // Send the form data using fetch
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSeRmKGjXbFb32jbrlK9Geu1Io6FqG_NoqM7TMpfiUJKbrdCdg/formResponse', {
+                method: 'POST',
+                body: formData,
+                mode: 'no-cors' // Use no-cors mode to avoid CORS issues
+            })
+            .then(response => {
+                console.log('Form submitted successfully:', response);
+                alert('Form submitted successfully');
+                // Optionally, you can display a success message here
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+            });
+
+        }
+        // function getValues(){
+        //     fetch('https://docs.google.com/spreadsheets/d/1hGyRnSRfJiKdLC3Yg68_IRdv7jGTOd_mSBYkJZgTta4/edit?usp=drive_link')
+        //     .then(response => response.json())
+        //     .then(data => {console.log(data)});
+        // }
+    
+    </script>
+</head>
+<body>
+    <form  onsubmit="handleSubmit(event)" >
+        <input type="text" name="entry.757691270" class="whsOnd zHQkBf" required placeholder="Name" />
+        <input type="text" name="entry.1372141880" class="KHxj8b tL9Q4c" required placeholder="Address" />
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>

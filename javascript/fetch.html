@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>CRUD App</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    // const axios = require('axios');
+
+
+
+    axios.get('http://localhost:3000/students')
+      .then(response => console.log('All Students:', response.data))
+      .catch(error => console.error('Error:', error));
+
+    function getStudent() {
+      const studentId = 1;
+
+      axios.get(`http://localhost:3000/students/${studentId}`)
+        .then(response => console.log('Student:', response.data))
+        .catch(error => console.error('Error:', error));
+
+    }
+    function deleteStudent(id) {
+      fetch(`http://localhost:3000/students/${id}`, {
+        method: 'DELETE',
+      })
+        .then(() => console.log('Student deleted'))
+        .catch(error => console.error('Error:', error));
+
+    }
+
+
+
+
+    const studentData = {
+      name: "John Doe",
+      class_n: "10th Grade",
+      email: "john.doe@example.com",
+      mobile: 1234567890
+    };
+
+    function updatedStudentData() {
+
+      const updatedData = {
+        name: "John Smith",
+        class_n: "10th Grade",
+        email: "john.smith@example.com",
+        mobile: 1234567890
+      };
+
+      axios.put('http://localhost:3000/students/1', updatedData)
+        .then(response => console.log('Updated:', response.data))
+        .catch(error => console.error('Error:', error));
+
+    }
+
+    function addStudent() {
+
+      const studentData = {
+        name: "John Doe",
+        class_n: "10th Grade",
+        email: "john.doe@example.com",
+        mobile: 1234567890
+      };
+
+      axios.post('http://localhost:3000/students', studentData)
+        .then(response => console.log('Student Created:', response.data))
+        .catch(error => console.error('Error:', error));
+
+    }
+
+  </script>
+  <h1>CRUD App</h1>
+  <button id="create-btn">Add</button>
+  <form id="create-form" style="display: none;">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age"><br><br>
+    <button type="submit">Create</button>
+  </form>
+  <table id="data-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="data-table-body">
+      <!-- data will be rendered here -->
+    </tbody>
+  </table>
+
+  <!-- <script src="./fetch.js"></script> -->
+</body>
+
+</html>

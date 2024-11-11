@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/ws@8.5.0/dist/ws.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/websocket@1.0.34/dist/websocket.min.js"></script>
+</head>
+<body>
+
+    <script>
+const WebSocket = window.WebSocket;
+const binanceWS = new WebSocket('wss://stream.binance.com:9443/stream');
+
+// ... rest of your code ...
+
+
+binanceWS.on('message', (data) => {
+    const ticker = JSON.parse(data);
+    const symbol = ticker.stream;
+    const currentPrice = ticker.data.k.c;
+
+    // Check if the price is below a certain threshold
+    if (currentPrice < 150) {
+        // Place a buy order using the Binance API
+        const binanceAPI = new WebSocket('wss://api.binance.com/api/v3/order');
+        binanceAPI.send(JSON.stringify({
+            symbol: symbol,
+            side: 'BUY',
+            type: 'MARKET',
+            quantity: 0.01,
+        }));
+        console.log('Buy order placed!');
+    }
+});
+    </script>
+    
+</body>
+</html>

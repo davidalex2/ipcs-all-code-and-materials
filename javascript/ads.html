@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #muteButton {
+      margin-top: 10px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      float: top;
+    }
+  </style>
+</head>
+<body>
+
+<video id="myVideo" width="320" height="240" autoplay>
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.ogg" type="video/ogg">
+  Your browser does not support the video tag.
+  <button id="muteButton">Mute</button>
+</video>
+
+<br>
+
+
+
+<script>
+  const video = document.getElementById('myVideo');
+  const muteButton = document.getElementById('muteButton');
+
+  muteButton.addEventListener('click', function () {
+    if (video.muted) {
+      video.muted = false;
+      muteButton.textContent = 'Mute';
+    } else {
+      video.muted = true;
+      muteButton.textContent = 'Unmute';
+    }
+  });
+</script>
+
+</body>
+</html>

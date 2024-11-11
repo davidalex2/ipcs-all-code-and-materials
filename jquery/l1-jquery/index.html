@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="some-text">hide this sentence
+        <!-- <a href="#">this is nothing</a> -->
+    </p>
+    <button>button</button>
+    <input type="text">
+    <script>
+        // $(document).ready(function(){ // normal function
+        //     $('#some-text').click(function(event){
+        //         alert('you have clicked');
+        //         event.preventDefault();
+        //         // $('a').hide();
+        //     })
+        // })
+        $(document).ready(function () {
+            $('#some-text').click(mycallback)// call back function
+        })
+        function mycallback() {
+            alert('you are getting alert')
+        }
+        // $(document).ready(function(){
+        //     $('#some-text').click(mycallback)
+        //     $('input').mouseenter(inputDisplay)
+            $('input').mouseover(inputDisplay)
+        //     $('input').mouseleave(leaveInput)
+
+        // })
+        $(document).ready(function () {
+            // $('input').hide()
+            // $('p').on({
+            //     mouseenter: function () {
+            //         $(this).css('background-color', 'yellow')
+            //     },
+            //     mouseleave: function () {
+            //         $(this).css('background-color', 'white')
+            //         $('input').show(1000,placeFunction)
+            //     }
+            // })
+            $('button').click(function(){
+                $('p').toggle()
+            })
+        })
+        function placeFunction(){
+            $(this).attr('placeholder','enter the values')
+        }
+        function leaveInput() {
+            alert("leaving already")
+        }
+        function inputDisplay() {
+
+            alert('you have entered something')
+            $('button').css({"background-color":"green","font-size":"20px"})
+        }
+
+    </script>
+</body>
+
+</html>
