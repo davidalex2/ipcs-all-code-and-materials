@@ -1,0 +1,12 @@
+li{
+  padding: 5px;
+  margin: 5px; 
+}
+ul{
+    list-style-type: none;
+    flex-wrap: wrap;
+    flex: auto;
+    display: flex;
+    padding: 5px;
+    margin: 5px;
+}
